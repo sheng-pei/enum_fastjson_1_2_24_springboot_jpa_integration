@@ -1,0 +1,1 @@
+# enum_fastjson_1_2_24_springboot_jpa_integration
