@@ -1,7 +1,6 @@
 package org.example.enums;
 
 //import com.fasterxml.jackson.annotation.JsonCreator;
-import org.example.Encoder;
 
 public enum TestEnum1 {
 
@@ -13,7 +12,6 @@ public enum TestEnum1 {
         this.name = name;
     }
 
-    @Encoder
     public String encode() {
         return this.name;
     }

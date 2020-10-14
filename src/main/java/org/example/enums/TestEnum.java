@@ -1,7 +1,7 @@
 package org.example.enums;
 
-import org.example.Encoder;
-import org.example.EnumConverter;
+import ppl.common.utils.EnumConverter;
+import ppl.common.utils.EnumEncoder;
 
 import javax.persistence.Converter;
 
@@ -17,7 +17,7 @@ public enum TestEnum {
         this.desc = desc;
     }
 
-    @Encoder
+    @EnumEncoder
     public int encode() {
         return this.code;
     }

@@ -1,7 +1,5 @@
 package org.example.enums;
 
-import org.example.Encoder;
-
 import java.math.BigInteger;
 
 public enum TestEnum2 {
@@ -11,7 +9,6 @@ public enum TestEnum2 {
         this.bigInteger = bigInteger;
     }
 
-    @Encoder
     public BigInteger encode() {
         return this.bigInteger;
     }

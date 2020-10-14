@@ -5,12 +5,12 @@ import org.example.enums.TestEnum;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "test")
+@Table(name = "enum_fastjson_1_2_24_springboot_jpa_integration")
 public class TestPo {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "test")
