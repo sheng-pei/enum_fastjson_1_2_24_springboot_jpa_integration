@@ -8,8 +8,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
-import ppl.common.utils.CustomParserConfig;
-import ppl.common.utils.CustomSerializeConfig;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -34,11 +32,9 @@ public class WebConf {
                 SerializerFeature.WriteNullBooleanAsFalse,
                 // 避免循环引用
                 SerializerFeature.DisableCircularReferenceDetect);
-        ParserConfig parserConfig = new CustomParserConfig();
-        config.setParserConfig(parserConfig);
+        ParserConfig.global = new CustomParserConfig();
+        config.setParserConfig(ParserConfig.global);
         config.setSerializeConfig(new CustomSerializeConfig());
-
-        ParserConfig.global = parserConfig;
 
         converter.setFastJsonConfig(config);
         converter.setDefaultCharset(StandardCharsets.UTF_8);

@@ -1,5 +1,7 @@
 package org.example;
 
+import com.alibaba.fastjson.JSON;
+import org.example.controller.TestParam;
 import org.example.enums.TestEnum;
 import org.example.po.TestPo;
 import org.example.repository.TestRepository;
@@ -23,8 +25,7 @@ public class Application {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(Application.class, args);
         Application app = context.getBean(Application.class);
-
-        app.save();
+//        app.save();
     }
 
 }
