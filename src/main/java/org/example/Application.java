@@ -1,7 +1,5 @@
 package org.example;
 
-import com.alibaba.fastjson.JSON;
-import org.example.controller.TestParam;
 import org.example.enums.TestEnum;
 import org.example.po.TestPo;
 import org.example.repository.TestRepository;

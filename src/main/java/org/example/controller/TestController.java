@@ -12,7 +12,7 @@ public class TestController {
     }
 
     @GetMapping("/test1")
-    public String test1() {
+    public String test1(TestParam param) {
         return "hello world";
     }
 

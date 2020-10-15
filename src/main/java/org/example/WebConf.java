@@ -4,19 +4,21 @@ import com.alibaba.fastjson.parser.ParserConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter4;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
-public class WebConf {
-    @Bean
-    public HttpMessageConverter configureMessageConverters() {
+public class WebConf implements WebMvcConfigurer {
+
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         FastJsonHttpMessageConverter4 converter = new FastJsonHttpMessageConverter4();
         FastJsonConfig config = new FastJsonConfig();
         config.setSerializerFeatures(
@@ -41,6 +43,11 @@ public class WebConf {
         List<MediaType> mediaTypeList = new ArrayList<>();
         mediaTypeList.add(MediaType.APPLICATION_JSON);
         converter.setSupportedMediaTypes(mediaTypeList);
-        return converter;
+        converters.add(0, converter);
+    }
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverterFactory(new MyStringToEnumConverterFactory());
     }
 }
